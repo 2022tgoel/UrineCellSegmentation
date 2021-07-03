@@ -4,10 +4,12 @@ import numpy as np
 from skimage.measure import label
 from pycocotools.mask import encode
 from detectron2.structures import BoxMode
-import json
 
 def get_cell_dicts(DIR):
 
+    IMGS_DIR = os.path.join(DIR, "imgs")
+    MASKS_DIR = os.path.join(DIR, "masks")
+    
     pixel = {"cytoplasm" : np.array([0, 255, 0]), "nucleus" : np.array([255, 0, 0])}
 
     dataset_dicts = []
@@ -21,12 +23,12 @@ def get_cell_dicts(DIR):
         return object_masks
 
 
-    for filename in os.listdir(DIR + "masks/"):
+    for filename in os.listdir(MASKS_DIR):
         if filename.endswith(".png"):
             instance = {}
-            mask = cv2.imread(DIR + "masks/" + filename)
+            mask = cv2.imread(os.path.join(MASKS_DIR, filename))
 
-            instance["file_name"] =DIR + "imgs/" + filename
+            instance["file_name"] =os.path.join(IMGS_DIR, filename)
             instance["height"], instance["width"], x = mask.shape
             instance["image_id"] = filename.split(".")[0]
 

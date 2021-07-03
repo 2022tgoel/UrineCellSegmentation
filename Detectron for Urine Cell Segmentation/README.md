@@ -3,7 +3,6 @@
 # Scripts
 * `preprocess.py` 
     * splits up the segmentation and mask portion
-    * takes to command line arguments: source dir and save dir
 * `convert_coco.py`
     * contains the utility function for creating a JSON in the COCO data format
     * Resources for understanding COCO
@@ -15,16 +14,22 @@
             * https://scipy-lectures.org/packages/scikit-image/auto_examples/plot_labels.html
         2. Convert that to run length encodings
             * `pycocotools.mask.encode(np.asarray(mask, order="F"))`
+* `training.py`
+    * trains the model
+* `gen_output.py`
+    * creates some images with the segmentation visualization overlayed
+     
 
 # Other Resources
+[Data Source](https://github.com/jlevy44/PreliminaryGenerativeHistoPath/)
 [Detectron Tutorial](https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD_-m5#scrollTo=U5LhISJqWXgM)
 
-## TODO
+# TODO
 
 - [ ] check the output to make sure it's sensible (https://detectron2.readthedocs.io/en/latest/tutorials/models.html#model-output-format)
 - [ ] fix the hacky cfg.INPUT.MASK_FORMAT='bitmask' thing I did (probably should just create a polygon as opposed to the RLE)
 - [ ] check skip loading parameter warnings 
-- [ ] put notebook code in scripts
+- [x] put notebook code in scripts
 - [ ] pickle the json
 - [ ] still need to figure out why the +0.5 ... 
 - [ ] doesn't seem like the model converged - train longer
