@@ -31,14 +31,14 @@ cfg.DATALOADER.NUM_WORKERS = 2
 cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")  # Let training initialize from model zoo
 cfg.SOLVER.IMS_PER_BATCH = 2
 cfg.SOLVER.BASE_LR = 0.005  # pick a good LR
-cfg.SOLVER.MAX_ITER = 5000 
+cfg.SOLVER.MAX_ITER = 10000 
 cfg.SOLVER.STEPS = []        # do not decay learning rate
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   # faster, and good enough for this toy dataset (default: 512)
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 2 
 
 cfg.OUTPUT_DIR = "output/"
 cfg.INPUT.MASK_FORMAT='bitmask'
-# NOTE: this config means the number of classes, but a few popular unofficial tutorials incorrect uses num_classes+1 here.
+# NOTE: this config means the number of classes, but a few popular unofficial tutorials incorrectly use num_classes+1 here.
 
 os.makedirs(cfg.OUTPUT_DIR, exist_ok=True)
 trainer = DefaultTrainer(cfg) 

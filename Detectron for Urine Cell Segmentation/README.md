@@ -26,9 +26,11 @@
 
 # TODO
 
-- [ ] check the output to make sure it's sensible (https://detectron2.readthedocs.io/en/latest/tutorials/models.html#model-output-format)
+- [x] check the output to make sure it's sensible (https://detectron2.readthedocs.io/en/latest/tutorials/models.html#model-output-format)
 - [ ] fix the hacky cfg.INPUT.MASK_FORMAT='bitmask' thing I did (probably should just create a polygon as opposed to the RLE)
-- [ ] check skip loading parameter warnings 
+- [x] check skip loading parameter warnings
+    - The warning message is expected. Because your dataset has different number of classes from the pre-trained model, a few pre-trained weights have to be skipped.
+    - Source: https://github.com/facebookresearch/detectron2/issues/196
 - [x] put notebook code in scripts
 - [ ] pickle the json
 - [ ] still need to figure out why the +0.5 ... 
