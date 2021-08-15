@@ -1,7 +1,7 @@
 Detectron\ for\ Urine\ Cell\ Segmentation/data/*
 Detectron\ for\ Urine\ Cell\ Segmentation/PreliminaryGenerativeHistoPath
 Detectron\ for\ Urine\ Cell\ Segmentation/PreliminaryGenerativeHistoPath/*
-# Detectron\ for\ Urine\ Cell\ Segmentation/output/*
+Detectron\ for\ Urine\ Cell\ Segmentation/output/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
